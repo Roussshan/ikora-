@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ikora - Mental Wellness Companion</title>
+    <link rel="stylesheet" href="css/styles-new.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Page Transition Overlay -->
+    <div class="page-transition"></div>
+    
+    <!-- Background Color Orbs -->
+    <div class="color-orb-bg orb-bg-1"></div>
+    <div class="color-orb-bg orb-bg-2"></div>
+    <div class="color-orb-bg orb-bg-3"></div>
+    <div class="color-orb-bg orb-bg-4"></div>
+    <div class="color-orb-bg orb-bg-5"></div>
+    <div class="color-orb-bg orb-bg-6"></div>
+    
+    <!-- Twinkling Stars -->
+    <div class="stars-container" id="starsContainer"></div>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/ikora.png" alt="Ikora Logo" class="logo-image">
+                <span class="logo-text">Ikora</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="page-link active">Home</a></li>
+                <li><a href="about.html" class="page-link">Wisdom</a></li>
+                <li><a href="gita-library.html" class="page-link">Gita Library</a></li>
+                <li><a href="exercise.html" class="page-link">Exercise</a></li>
+                <li><a href="auth.html" class="btn-nav page-link">Let's Talk</a></li>
+                <li><button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+                    <span class="theme-icon">🌙</span>
+                </button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content-center">
+            <div class="color-orb"></div>
+            <p class="hero-tagline-top">"AI Mental Wellness Chatbot Inspired by the Bhagavad Gita"</p>
+            <h1 class="hero-title-large">IKORA</h1>
+            <p class="hero-tagline-bottom">Blending Ancient Wisdom with Modern Artificial Intelligence</p>
+        </div>
+    </section>
+
+    <section class="about-ikora">
+        <div class="content-wrapper">
+            <div class="intro-section">
+                <h2 class="content-title">What is Ikora?</h2>
+                <p class="content-text">
+                    Ikora is your personal mental wellness companion, powered by the timeless wisdom of the Bhagavad Gita. 
+                    In today's fast-paced world filled with stress, anxiety, and uncertainty, we often seek guidance and peace. 
+                    Ikora bridges the gap between ancient spiritual teachings and modern mental health needs, offering you a 
+                    compassionate AI chatbot that understands your struggles and provides meaningful guidance.
+                </p>
+            </div>
+
+            <div class="how-it-works">
+                <h2 class="content-title">How Does Ikora Work?</h2>
+                <div class="work-steps">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Share Your Thoughts</h3>
+                        <p>Simply type what's on your mind - whether it's anxiety, confusion, loss, or seeking purpose. No judgment, just understanding.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>AI-Powered Wisdom</h3>
+                        <p>Our intelligent chatbot analyzes your concerns and searches through the 700 verses of the Bhagavad Gita to find relevant teachings.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Receive Guidance</h3>
+                        <p>Get personalized responses with ancient wisdom applied to your modern situation, helping you find clarity and peace.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="inspiration-section">
+                <h2 class="content-title">The Inspiration Behind Ikora</h2>
+                <p class="content-text">
+                    Ikora draws its wisdom from the <strong>Bhagavad Gita</strong>, a 5,000-year-old sacred Hindu scripture 
+                    that is part of the epic Mahabharata. The Gita is a profound dialogue between Prince Arjuna and Lord Krishna 
+                    on the battlefield of Kurukshetra, where Arjuna faces a moral crisis about fighting in a war against his own relatives.
+                </p>
+                <p class="content-text">
+                    Through this conversation, Krishna imparts timeless wisdom about duty (dharma), righteousness, the nature of 
+                    the self, and the paths to spiritual liberation. The teachings address universal human concerns that remain 
+                    relevant today: dealing with anxiety, finding purpose, managing emotions, understanding loss, and achieving 
+                    inner peace.
+                </p>
+                <p class="content-text">
+                    The name <strong>"Ikora"</strong> is inspired by the concept of inner wisdom and spiritual guidance. Just as 
+                    Krishna guided Arjuna through his darkest moment, Ikora aims to guide you through life's challenges using 
+                    these eternal principles adapted for the modern world.
+                </p>
+            </div>
+
+            <div class="why-gita">
+                <h2 class="content-title">Why the Bhagavad Gita for Mental Wellness?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🧠</span>
+                        <h4>Practical Psychology</h4>
+                        <p>The Gita offers practical insights into human psychology, emotions, and behavior that align with modern mental health principles.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">⚖️</span>
+                        <h4>Balance & Equanimity</h4>
+                        <p>Teaches how to maintain mental balance in success and failure, pleasure and pain - essential for emotional resilience.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🎯</span>
+                        <h4>Purpose & Meaning</h4>
+                        <p>Helps you discover your dharma (life purpose) and find meaning in your actions, reducing existential anxiety.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <span class="benefit-icon">🌊</span>
+                        <h4>Stress Management</h4>
+                        <p>Provides techniques for detachment from outcomes, reducing stress and anxiety about things beyond your control.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-final">
+                <h2>Ready to Begin Your Journey?</h2>
+                <p>Experience the transformative power of ancient wisdom for modern wellness</p>
+                <a href="auth.html" class="btn btn-primary btn-large">Start Chatting with Ikora</a>
+            </div>
+
+            <!-- Testimonials Section -->
+            <div class="testimonials-section">
+                <h2 class="content-title">What Our Users Say</h2>
+                <div class="testimonials-carousel">
+                    <button class="carousel-btn prev-btn" id="prevTestimonial">‹</button>
+                    <div class="testimonials-container" id="testimonialsContainer">
+                        <div class="testimonial-card active">
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                            <p class="testimonial-text">"Ikora has been a game-changer for my mental health. The wisdom from the Bhagavad Gita helps me find peace during stressful times at work."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">👤</div>
+                                <div class="author-info">
+                                    <p class="author-name">Priya S.</p>
+                                    <p class="author-role">Software Engineer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                            <p class="testimonial-text">"I was skeptical at first, but the guidance I receive from Ikora is incredibly relevant to my daily struggles. It's like having a wise friend available 24/7."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">👤</div>
+                                <div class="author-info">
+                                    <p class="author-name">Rahul M.</p>
+                                    <p class="author-role">Business Owner</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                            <p class="testimonial-text">"The Bhagavad Gita teachings through Ikora have helped me manage my anxiety better than any app I've tried. Highly recommend!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">👤</div>
+                                <div class="author-info">
+                                    <p class="author-name">Anjali K.</p>
+                                    <p class="author-role">Teacher</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                            <p class="testimonial-text">"Finding purpose and clarity has never been easier. Ikora's responses are thoughtful and deeply meaningful."</p>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">👤</div>
+                                <div class="author-info">
+                                    <p class="author-name">Vikram P.</p>
+                                    <p class="author-role">Student</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-btn next-btn" id="nextTestimonial">›</button>
+                </div>
+                <div class="carousel-dots" id="carouselDots"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Ikora. Bringing ancient wisdom to modern minds.</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+

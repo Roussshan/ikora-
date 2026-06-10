@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Ikora</title>
+    <link rel="stylesheet" href="css/styles-new.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Color Orbs -->
+    <div class="color-orb-bg orb-bg-1"></div>
+    <div class="color-orb-bg orb-bg-2"></div>
+    <div class="color-orb-bg orb-bg-3"></div>
+    <div class="color-orb-bg orb-bg-4"></div>
+    <div class="color-orb-bg orb-bg-5"></div>
+    <div class="color-orb-bg orb-bg-6"></div>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/ikora.png" alt="Ikora Logo" class="logo-image">
+                <span class="logo-text">Ikora</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">Wisdom</a></li>
+                <li><a href="gita-library.html">Gita Library</a></li>
+                <li><a href="exercise.html">Exercise</a></li>
+                <li><span class="user-greeting" id="userGreeting">Welcome</span></li>
+                <li><a href="auth.html" class="btn-nav" id="logoutBtn" onclick="handleLogout(event)">Logout</a></li>
+                <li><button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+                    <span class="theme-icon">🌙</span>
+                </button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="chat-container-centered">
+        <div class="chat-card-glass">
+            <div class="chat-header-single">
+                <div class="bot-avatar-header"><img src="assets/ikora.png" alt="Ikora" class="chat-avatar-image"></div>
+                <div class="header-text">
+                    <h2>Ikora</h2>
+                    <p>Your Wellness Buddy • Always here to listen</p>
+                </div>
+            </div>
+            
+            <div class="chat-messages-single" id="chatMessages">
+                <div class="message bot-message">
+                    <div class="message-avatar"><img src="assets/ikora.png" alt="Ikora" class="message-avatar-image"></div>
+                    <div class="message-content">
+                        <p>Namaste! 🙏 I am here to share the wisdom of the Bhagavad Gita with you. Whether you're feeling anxious, seeking purpose, or just need someone to talk to - I'm here for you. How may I guide you today?</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-input-single">
+                <form class="chat-form" id="chatForm">
+                    <input 
+                        type="text" 
+                        id="chatInput" 
+                        placeholder="Share what's on your mind... 💭" 
+                        autocomplete="off"
+                    >
+                    <button type="submit" class="send-btn-single">
+                        <span>Send 📤</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Mood Tracking Dock (Collapsible) -->
+        <div class="mood-dock" id="moodDock">
+            <button class="mood-dock-toggle" id="moodDockToggle">
+                <span class="dock-icon">📊</span>
+                <span class="dock-text">Mood Tracking</span>
+                <span class="dock-arrow">›</span>
+            </button>
+            
+            <div class="mood-dock-panel" id="moodDockPanel">
+                <div class="mood-panel-header">
+                    <h3>Track Your Mood</h3>
+                    <button class="mood-panel-close" id="closeMoodPanel">✕</button>
+                </div>
+                
+                <div class="mood-panel-content">
+                    <!-- Today's Mood -->
+                    <div class="mood-today-compact">
+                        <p class="mood-question">How are you feeling?</p>
+                        <div class="mood-selector-compact">
+                            <button class="mood-btn-compact" data-mood="amazing" title="Amazing">😄</button>
+                            <button class="mood-btn-compact" data-mood="good" title="Good">😊</button>
+                            <button class="mood-btn-compact" data-mood="okay" title="Okay">😐</button>
+                            <button class="mood-btn-compact" data-mood="sad" title="Sad">😔</button>
+                            <button class="mood-btn-compact" data-mood="anxious" title="Anxious">😰</button>
+                        </div>
+                        <textarea id="moodNoteCompact" placeholder="Add a note (optional)..." class="mood-note-compact"></textarea>
+                        <button class="btn-save-mood" id="saveMoodBtnCompact">Save Mood</button>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="mood-stats-compact">
+                        <div class="stat-item-compact">
+                            <span class="stat-label">Streak</span>
+                            <span class="stat-value" id="streakCompact">0 days</span>
+                        </div>
+                        <div class="stat-item-compact">
+                            <span class="stat-label">Total</span>
+                            <span class="stat-value" id="totalCompact">0</span>
+                        </div>
+                        <div class="stat-item-compact">
+                            <span class="stat-label">This Week</span>
+                            <span class="stat-value" id="weekMoodCompact">-</span>
+                        </div>
+                    </div>
+
+                    <!-- Mini Calendar -->
+                    <div class="mood-calendar-compact">
+                        <div class="calendar-header-compact">
+                            <button class="calendar-nav-compact" id="prevMonthCompact">‹</button>
+                            <span class="calendar-month-compact" id="currentMonthCompact">January 2024</span>
+                            <button class="calendar-nav-compact" id="nextMonthCompact">›</button>
+                        </div>
+                        <div class="calendar-grid-compact" id="calendarGridCompact">
+                            <!-- Calendar will be generated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- Recent Entries -->
+                    <div class="mood-history-compact">
+                        <h4 class="history-title-compact">Recent Entries</h4>
+                        <div class="history-list-compact" id="historyListCompact">
+                            <p class="no-entries">No entries yet. Start tracking!</p>
+                        </div>
+                    </div>
+
+                    <!-- View Full Tracker Link -->
+                    <a href="mood-tracker.html" class="view-full-link">View Full Mood Tracker →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/mood-tracker.js"></script>
+    <script>
+        // Mood Dock Toggle
+        const moodDockToggle = document.getElementById('moodDockToggle');
+        const moodDockPanel = document.getElementById('moodDockPanel');
+        const closeMoodPanel = document.getElementById('closeMoodPanel');
+        const moodDock = document.getElementById('moodDock');
+
+        moodDockToggle.addEventListener('click', () => {
+            moodDock.classList.toggle('expanded');
+        });
+
+        closeMoodPanel.addEventListener('click', () => {
+            moodDock.classList.remove('expanded');
+        });
+    </script>
+    <script>
+        // Logout function
+        function handleLogout(event) {
+            event.preventDefault();
+            localStorage.removeItem('ikora_token');
+            localStorage.removeItem('ikora_user');
+            localStorage.clear();
+            alert('Logged out successfully!');
+            window.location.href = 'auth.html';
+        }
+    </script>
+</body>
+</html>
+
+

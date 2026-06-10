@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: ikora-backend
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: FLASK_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false   # set this manually in Render dashboard
+      - key: JWT_SECRET
+        sync: false   # set this manually in Render dashboard
+      - key: GEMINI_API_KEY
+        sync: false   # set this manually in Render dashboard
+      - key: JWT_EXPIRES_IN
+        value: 86400

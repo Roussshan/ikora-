@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Ikora</title>
+    <link rel="stylesheet" href="css/styles-new.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Apply dark mode immediately to prevent flash -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('ikora-theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
+</head>
+<body>
+    <!-- Login/Signup Loading Screen -->
+    <div class="loading-screen" id="authLoadingScreen" style="display: none;">
+        <div class="loading-content">
+            <h1 class="loading-title">IKORA</h1>
+            <div class="loading-lotus"><img src="assets/ikora.png" alt="Ikora" class="loading-logo-image"></div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p class="loading-text" id="loadingMessage">Preparing your wellness journey...</p>
+        </div>
+    </div>
+    
+    <!-- Page Transition Overlay -->
+    <div class="page-transition"></div>
+    
+    <!-- Background Color Orbs -->
+    <div class="color-orb-bg orb-bg-1"></div>
+    <div class="color-orb-bg orb-bg-2"></div>
+    <div class="color-orb-bg orb-bg-3"></div>
+    <div class="color-orb-bg orb-bg-4"></div>
+    <div class="color-orb-bg orb-bg-5"></div>
+    <div class="color-orb-bg orb-bg-6"></div>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/ikora.png" alt="Ikora Logo" class="logo-image">
+                <span class="logo-text">Ikora</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="page-link">Home</a></li>
+                <li><a href="about.html" class="page-link">Wisdom</a></li>
+                <li><a href="exercise.html" class="page-link">Exercise</a></li>
+                <li><button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+                    <span class="theme-icon">🌙</span>
+                </button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-card-wrapper">
+            <!-- Login Form -->
+            <div class="auth-card" id="loginCard">
+                <div class="auth-header">
+                    <div class="auth-icon"><img src="assets/ikora.png" alt="Ikora" class="auth-logo-image"></div>
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to continue your wellness journey</p>
+                </div>
+                
+                <form class="auth-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="loginUsername">Username</label>
+                        <input type="text" id="loginUsername" name="username" required placeholder="Enter your username">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" name="password" required placeholder="Enter your password">
+                    </div>
+                    
+                    <div class="error-message" id="loginError"></div>
+                    
+                    <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+                </form>
+                
+                <div class="auth-divider">
+                    <span>or</span>
+                </div>
+                
+                <p class="auth-switch">
+                    Don't have an account? <a href="#" id="showSignup">Create Account</a>
+                </p>
+            </div>
+            
+            <!-- Signup Form -->
+            <div class="auth-card" id="signupCard" style="display: none;">
+                <div class="auth-header">
+                    <div class="auth-icon">🙏</div>
+                    <h2>Begin Your Journey</h2>
+                    <p>Create an account to access personalized wellness guidance</p>
+                </div>
+                
+                <form class="auth-form" id="signupForm">
+                    <div class="form-group">
+                        <label for="signupUsername">Username</label>
+                        <input type="text" id="signupUsername" name="username" required placeholder="Choose a username" minlength="3">
+                        <small>At least 3 characters</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" name="password" required placeholder="Create a password" minlength="6">
+                        <small>At least 6 characters</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Re-enter password">
+                    </div>
+                    
+                    <div class="error-message" id="signupError"></div>
+                    
+                    <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+                </form>
+                
+                <div class="auth-divider">
+                    <span>or</span>
+                </div>
+                
+                <p class="auth-switch">
+                    Already have an account? <a href="#" id="showLogin">Sign In</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // ========================================
+        // DARK MODE TOGGLE - Auth Page Specific
+        // ========================================
+        (function() {
+            // Apply saved dark mode preference immediately
+            const savedTheme = localStorage.getItem('ikora-theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+            }
+            
+            // Wait for DOM to be ready
+            function initAuthDarkMode() {
+                const themeToggle = document.getElementById('themeToggle');
+                const themeIcon = document.querySelector('.theme-icon');
+                
+                if (!themeToggle) {
+                    console.error('Theme toggle button not found');
+                    return;
+                }
+                
+                // Update icon based on current theme
+                function updateIcon() {
+                    if (document.body.classList.contains('dark-mode')) {
+                        themeIcon.textContent = '☀️';
+                    } else {
+                        themeIcon.textContent = '🌙';
+                    }
+                }
+                
+                // Set initial icon
+                updateIcon();
+                
+                // Toggle dark mode on click
+                themeToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Dark mode toggle clicked');
+                    
+                    document.body.classList.toggle('dark-mode');
+                    
+                    // Save preference
+                    if (document.body.classList.contains('dark-mode')) {
+                        localStorage.setItem('ikora-theme', 'dark');
+                        console.log('Dark mode enabled');
+                    } else {
+                        localStorage.setItem('ikora-theme', 'light');
+                        console.log('Dark mode disabled');
+                    }
+                    
+                    // Update icon
+                    updateIcon();
+                });
+                
+                console.log('Dark mode initialized on auth page');
+            }
+            
+            // Initialize when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initAuthDarkMode);
+            } else {
+                initAuthDarkMode();
+            }
+        })();
+        
+        // Create floating particles animation
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            if (!particlesContainer) return;
+            
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Initialize particles
+        createParticles();
+    </script>
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+

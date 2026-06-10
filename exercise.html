@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindfulness Exercises - Ikora</title>
+    <link rel="stylesheet" href="css/styles-new.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Page Transition Overlay -->
+    <div class="page-transition"></div>
+    
+    <!-- Background Color Orbs -->
+    <div class="color-orb-bg orb-bg-1"></div>
+    <div class="color-orb-bg orb-bg-2"></div>
+    <div class="color-orb-bg orb-bg-3"></div>
+    <div class="color-orb-bg orb-bg-4"></div>
+    <div class="color-orb-bg orb-bg-5"></div>
+    <div class="color-orb-bg orb-bg-6"></div>
+    
+    <!-- Twinkling Stars -->
+    <div class="stars-container" id="starsContainer"></div>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/ikora.png" alt="Ikora Logo" class="logo-image">
+                <span class="logo-text">Ikora</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="page-link">Home</a></li>
+                <li><a href="about.html" class="page-link">Wisdom</a></li>
+                <li><a href="gita-library.html" class="page-link">Gita Library</a></li>
+                <li><a href="exercise.html" class="active page-link">Exercise</a></li>
+                <li><a href="auth.html" class="btn-nav page-link">Let's Talk</a></li>
+                <li><button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+                    <span class="theme-icon">🌙</span>
+                </button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="about-hero">
+        <h1>Mindfulness Exercises</h1>
+        <p>Practice peace and presence through guided exercises</p>
+    </section>
+
+    <section class="content-section">
+        <div class="content-container">
+            <!-- Breathing Exercise -->
+            <div class="breathing-exercise">
+                <h2 class="content-title">Guided Breathing Exercise</h2>
+                <p class="breathing-subtitle">Follow the circle to practice mindful breathing</p>
+                <p class="breathing-description">
+                    This simple yet powerful breathing technique helps calm your mind, reduce stress, and bring you into the present moment. 
+                    The 4-4-4-4 pattern (breathe in for 4 seconds, hold for 4 seconds, breathe out for 4 seconds, hold for 4 seconds) 
+                    is known as "box breathing" and is used by athletes, military personnel, and meditation practitioners worldwide.
+                </p>
+                <div class="breathing-container">
+                    <div class="breathing-circle-animated" id="breathingCircle">
+                        <div class="breathing-text" id="breathingText">Breathe In</div>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-large" id="breathingToggle">Start Exercise</button>
+                <div class="breathing-benefits">
+                    <h3>Benefits of Regular Practice:</h3>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🧠</span>
+                            <h4>Reduces Stress</h4>
+                            <p>Activates the parasympathetic nervous system, promoting relaxation</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">💓</span>
+                            <h4>Improves Focus</h4>
+                            <p>Increases oxygen flow to the brain, enhancing concentration</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">😌</span>
+                            <h4>Calms Anxiety</h4>
+                            <p>Helps regulate emotions and reduces anxious thoughts</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">⚡</span>
+                            <h4>Boosts Energy</h4>
+                            <p>Improves oxygen circulation throughout your body</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coming Soon Section -->
+            <div class="coming-soon-section">
+                <h2 class="content-title">More Exercises Coming Soon</h2>
+                <div class="coming-soon-grid">
+                    <div class="coming-soon-card">
+                        <div class="coming-soon-icon">🧘‍♀️</div>
+                        <h3>Guided Meditation</h3>
+                        <p>Step-by-step meditation sessions for beginners and advanced practitioners</p>
+                        <span class="coming-soon-badge">Coming Soon</span>
+                    </div>
+                    <div class="coming-soon-card">
+                        <div class="coming-soon-icon">🎵</div>
+                        <h3>Sound Healing</h3>
+                        <p>Calming sounds and frequencies to promote deep relaxation</p>
+                        <span class="coming-soon-badge">Coming Soon</span>
+                    </div>
+                    <div class="coming-soon-card">
+                        <div class="coming-soon-icon">🌅</div>
+                        <h3>Morning Rituals</h3>
+                        <p>Start your day with intention through guided morning practices</p>
+                        <span class="coming-soon-badge">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section-transparent">
+                <div class="cta-icon"><img src="assets/ikora.png" alt="Ikora" class="cta-logo-image"></div>
+                <h2>Need Personalized Guidance?</h2>
+                <p>Chat with Ikora for wisdom tailored to your unique journey</p>
+                <a href="auth.html" class="btn btn-primary btn-large">Start Chatting</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Ikora. Bringing ancient wisdom to modern minds.</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+

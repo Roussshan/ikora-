@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhagavad Gita Library - Ikora</title>
+    <link rel="stylesheet" href="css/styles-new.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Page Transition Overlay -->
+    <div class="page-transition"></div>
+    
+    <!-- Background Color Orbs -->
+    <div class="color-orb-bg orb-bg-1"></div>
+    <div class="color-orb-bg orb-bg-2"></div>
+    <div class="color-orb-bg orb-bg-3"></div>
+    <div class="color-orb-bg orb-bg-4"></div>
+    <div class="color-orb-bg orb-bg-5"></div>
+    <div class="color-orb-bg orb-bg-6"></div>
+    
+    <!-- Twinkling Stars -->
+    <div class="stars-container" id="starsContainer"></div>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/ikora.png" alt="Ikora Logo" class="logo-image">
+                <span class="logo-text">Ikora</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="page-link">Home</a></li>
+                <li><a href="about.html" class="page-link">Wisdom</a></li>
+                <li><a href="gita-library.html" class="active page-link">Gita Library</a></li>
+                <li><a href="exercise.html" class="page-link">Exercise</a></li>
+                <li><a href="auth.html" class="btn-nav page-link">Let's Talk</a></li>
+                <li><button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+                    <span class="theme-icon">🌙</span>
+                </button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="about-hero">
+        <h1>Bhagavad Gita Library</h1>
+        <p>Explore the 700 verses of timeless wisdom</p>
+    </section>
+
+    <section class="content-section">
+        <div class="content-container">
+            <!-- Search and Filter -->
+            <div class="gita-search-section">
+                <div class="search-bar">
+                    <input type="text" id="verseSearch" placeholder="Search verses by keyword or topic..." class="search-input">
+                    <button class="search-btn" id="searchBtn">🔍</button>
+                </div>
+                <div class="filter-section">
+                    <label for="chapterFilter">Chapter:</label>
+                    <select id="chapterFilter" class="filter-select">
+                        <option value="all">All Chapters</option>
+                        <option value="1">Chapter 1: Arjuna's Dilemma</option>
+                        <option value="2">Chapter 2: Sankhya Yoga</option>
+                        <option value="3">Chapter 3: Karma Yoga</option>
+                        <option value="4">Chapter 4: Jnana Yoga</option>
+                        <option value="5">Chapter 5: Karma Sannyasa Yoga</option>
+                        <option value="6">Chapter 6: Dhyana Yoga</option>
+                        <option value="7">Chapter 7: Jnana Vijnana Yoga</option>
+                        <option value="8">Chapter 8: Aksara Brahma Yoga</option>
+                        <option value="9">Chapter 9: Raja Vidya Yoga</option>
+                        <option value="10">Chapter 10: Vibhuti Yoga</option>
+                        <option value="11">Chapter 11: Visvarupa Darsana Yoga</option>
+                        <option value="12">Chapter 12: Bhakti Yoga</option>
+                        <option value="13">Chapter 13: Ksetra Ksetrajna Vibhaga Yoga</option>
+                        <option value="14">Chapter 14: Gunatraya Vibhaga Yoga</option>
+                        <option value="15">Chapter 15: Purusottama Yoga</option>
+                        <option value="16">Chapter 16: Daivasura Sampad Vibhaga Yoga</option>
+                        <option value="17">Chapter 17: Sraddhatraya Vibhaga Yoga</option>
+                        <option value="18">Chapter 18: Moksa Sannyasa Yoga</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Verses Container -->
+            <div class="verses-container" id="versesContainer">
+                <!-- Sample verses - In production, load from database/API -->
+                <div class="verse-card" data-chapter="2" data-verse="47">
+                    <div class="verse-header">
+                        <span class="verse-number">Chapter 2, Verse 47</span>
+                        <button class="bookmark-btn" title="Bookmark">⭐</button>
+                    </div>
+                    <p class="verse-sanskrit">कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।<br>मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि॥</p>
+                    <p class="verse-translation">You have the right to perform your prescribed duty, but you are not entitled to the fruits of action. Never consider yourself to be the cause of the results of your activities, nor be attached to inaction.</p>
+                    <div class="verse-tags">
+                        <span class="tag">Karma Yoga</span>
+                        <span class="tag">Detachment</span>
+                        <span class="tag">Action</span>
+                    </div>
+                </div>
+
+                <div class="verse-card" data-chapter="2" data-verse="20">
+                    <div class="verse-header">
+                        <span class="verse-number">Chapter 2, Verse 20</span>
+                        <button class="bookmark-btn" title="Bookmark">⭐</button>
+                    </div>
+                    <p class="verse-sanskrit">न जायते म्रियते वा कदाचिन्<br>नायं भूत्वा भविता वा न भूयः।<br>अजो नित्यः शाश्वतोऽयं पुराणो<br>न हन्यते हन्यमाने शरीरे॥</p>
+                    <p class="verse-translation">The soul is neither born, and nor does it die. It is eternal, indestructible, and timeless. It is not slain when the body is slain.</p>
+                    <div class="verse-tags">
+                        <span class="tag">Soul</span>
+                        <span class="tag">Eternal</span>
+                        <span class="tag">Death</span>
+                    </div>
+                </div>
+
+                <div class="verse-card" data-chapter="2" data-verse="56">
+                    <div class="verse-header">
+                        <span class="verse-number">Chapter 2, Verse 56</span>
+                        <button class="bookmark-btn" title="Bookmark">⭐</button>
+                    </div>
+                    <p class="verse-sanskrit">दुःखेष्वनुद्विग्नमनाः सुखेषु विगतस्पृहः।<br>वीतरागभयक्रोधः स्थितधीर्मुनिरुच्यते॥</p>
+                    <p class="verse-translation">One who is not disturbed in mind even amidst the threefold miseries or elated when there is happiness, and who is free from attachment, fear and anger, is called a sage of steady mind.</p>
+                    <div class="verse-tags">
+                        <span class="tag">Equanimity</span>
+                        <span class="tag">Peace</span>
+                        <span class="tag">Wisdom</span>
+                    </div>
+                </div>
+
+                <div class="verse-card" data-chapter="3" data-verse="35">
+                    <div class="verse-header">
+                        <span class="verse-number">Chapter 3, Verse 35</span>
+                        <button class="bookmark-btn" title="Bookmark">⭐</button>
+                    </div>
+                    <p class="verse-sanskrit">श्रेयान्स्वधर्मो विगुणः परधर्मात्स्वनुष्ठितात्।<br>स्वधर्मे निधनं श्रेयः परधर्मो भयावहः॥</p>
+                    <p class="verse-translation">It is better to engage in one's own occupation, even though one may perform it imperfectly, than to accept another's occupation and perform it perfectly. Duties prescribed according to one's nature are never affected by sinful reactions.</p>
+                    <div class="verse-tags">
+                        <span class="tag">Dharma</span>
+                        <span class="tag">Purpose</span>
+                        <span class="tag">Duty</span>
+                    </div>
+                </div>
+
+                <div class="verse-card" data-chapter="6" data-verse="5">
+                    <div class="verse-header">
+                        <span class="verse-number">Chapter 6, Verse 5</span>
+                        <button class="bookmark-btn" title="Bookmark">⭐</button>
+                    </div>
+                    <p class="verse-sanskrit">उद्धरेदात्मनात्मानं नात्मानमवसादयेत्।<br>आत्मैव ह्यात्मनो बन्धुरात्मैव रिपुरात्मनः॥</p>
+                    <p class="verse-translation">Elevate yourself through the power of your mind, and not degrade yourself, for the mind can be the friend and also the enemy of the self.</p>
+                    <div class="verse-tags">
+                        <span class="tag">Mind</span>
+                        <span class="tag">Self-Control</span>
+                        <span class="tag">Growth</span>
+                    </div>
+                </div>
+
+                <div class="verse-card" data-chapter="2" data-verse="63">
+                    <div class="verse-header">
+                        <span class="verse-number">Chapter 2, Verse 63</span>
+                        <button class="bookmark-btn" title="Bookmark">⭐</button>
+                    </div>
+                    <p class="verse-sanskrit">क्रोधाद्भवति सम्मोहः सम्मोहात्स्मृतिविभ्रमः।<br>स्मृतिभ्रंशाद् बुद्धिनाशो बुद्धिनाशात्प्रणश्यति॥</p>
+                    <p class="verse-translation">From anger comes delusion; from delusion, loss of memory; from loss of memory, destruction of discrimination; from destruction of discrimination, one perishes.</p>
+                    <div class="verse-tags">
+                        <span class="tag">Anger</span>
+                        <span class="tag">Control</span>
+                        <span class="tag">Wisdom</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-section">
+                <button class="btn btn-primary" id="loadMoreBtn">Load More Verses</button>
+                <p class="verses-count">Showing 6 of 700 verses</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Ikora. Bringing ancient wisdom to modern minds.</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/gita-library.js"></script>
+</body>
+</html>
+
+

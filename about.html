@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisdom - Ikora</title>
+    <link rel="stylesheet" href="css/styles-new.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Page Transition Overlay -->
+    <div class="page-transition"></div>
+    
+    <!-- Background Color Orbs -->
+    <div class="color-orb-bg orb-bg-1"></div>
+    <div class="color-orb-bg orb-bg-2"></div>
+    <div class="color-orb-bg orb-bg-3"></div>
+    <div class="color-orb-bg orb-bg-4"></div>
+    <div class="color-orb-bg orb-bg-5"></div>
+    <div class="color-orb-bg orb-bg-6"></div>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/ikora.png" alt="Ikora Logo" class="logo-image">
+                <span class="logo-text">Ikora</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="page-link">Home</a></li>
+                <li><a href="about.html" class="active page-link">Wisdom</a></li>
+                <li><a href="gita-library.html" class="page-link">Gita Library</a></li>
+                <li><a href="exercise.html" class="page-link">Exercise</a></li>
+                <li><a href="auth.html" class="btn-nav page-link">Let's Talk</a></li>
+                <li><button class="theme-toggle" id="themeToggle" title="Toggle Dark Mode">
+                    <span class="theme-icon">🌙</span>
+                </button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="about-hero">
+        <h1>The Bhagavad Gita & Mental Wellness</h1>
+        <p>Ancient wisdom for modern challenges</p>
+    </section>
+
+    <section class="content-section">
+        <div class="content-container">
+            <!-- Quote of the Day -->
+            <div class="quote-of-day" id="quoteOfDay">
+                <div class="quote-icon">📿</div>
+                <h3 class="quote-title">Wisdom of the Day</h3>
+                <p class="quote-text" id="quoteText"></p>
+                <p class="quote-reference" id="quoteReference"></p>
+                <button class="quote-refresh" id="refreshQuote" title="New Quote">🔄</button>
+            </div>
+
+            <div class="wisdom-card-transparent">
+                <div class="wisdom-icon">📚</div>
+                <h2>What is the Bhagavad Gita?</h2>
+                <p>The Bhagavad Gita is a 700-verse Hindu scripture that is part of the epic Mahabharata. It presents a conversation between Prince Arjuna and Lord Krishna, offering profound insights on duty, righteousness, and the path to spiritual liberation.</p>
+            </div>
+
+            <div class="wisdom-card-transparent">
+                <div class="wisdom-icon">🧘‍♀️</div>
+                <h2>Mental Wellness Through Gita</h2>
+                <p>The Gita addresses universal human concerns: anxiety, purpose, duty, and inner peace. Its teachings provide practical wisdom for managing stress, finding clarity, and cultivating mental resilience in daily life.</p>
+            </div>
+
+            <div class="key-teachings">
+                <h2>Key Teachings for Wellness</h2>
+                <div class="teachings-grid-flow">
+                    <div class="teaching-flow-card">
+                        <div class="teaching-icon">🎯</div>
+                        <div class="teaching-number">1</div>
+                        <h3>Detachment from Results</h3>
+                        <p>Focus on your actions, not outcomes. This reduces anxiety and helps you stay present.</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="teaching-flow-card">
+                        <div class="teaching-icon">💡</div>
+                        <div class="teaching-number">2</div>
+                        <h3>Self-Knowledge</h3>
+                        <p>Understanding your true nature brings peace and clarity beyond temporary emotions.</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="teaching-flow-card">
+                        <div class="teaching-icon">⚖️</div>
+                        <div class="teaching-number">3</div>
+                        <h3>Equanimity</h3>
+                        <p>Maintain balance in success and failure, pleasure and pain.</p>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="teaching-flow-card">
+                        <div class="teaching-icon">🌟</div>
+                        <div class="teaching-number">4</div>
+                        <h3>Dharma (Purpose)</h3>
+                        <p>Living aligned with your purpose brings fulfillment and reduces inner conflict.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section-transparent">
+                <div class="cta-icon"><img src="assets/ikora.png" alt="Ikora" class="cta-logo-image"></div>
+                <h2>Ready to Experience This Wisdom?</h2>
+                <p>Start your journey with our AI-powered Gita companion</p>
+                <a href="auth.html" class="btn btn-primary">Let's Talk</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 Ikora. Bringing ancient wisdom to modern minds.</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+
