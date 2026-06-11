@@ -17,7 +17,14 @@ def connect_mongodb():
     global mongo_client, db
     
     try:
-        mongo_client = MongoClient(MONGODB_URI, serverSelectionTimeoutMS=5000)
+        # Use longer timeout for Atlas on cloud hosting (Render cold starts)
+        mongo_client = MongoClient(
+            MONGODB_URI,
+            serverSelectionTimeoutMS=10000,
+            connectTimeoutMS=10000,
+            socketTimeoutMS=10000,
+            tls=True if 'mongodb+srv' in MONGODB_URI else False,
+        )
         # Test connection
         mongo_client.admin.command('ping')
         

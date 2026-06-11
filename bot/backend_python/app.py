@@ -54,9 +54,29 @@ register_error_handlers(app)
 # Health check endpoint
 @app.route('/health', methods=['GET'])
 def health_check():
+    from config.mongodb import get_db
+    db = get_db()
     return jsonify({
         'status': 'ok',
+        'database': 'connected' if db is not None else 'disconnected',
         'timestamp': logger.get_timestamp()
+    })
+
+# Debug endpoint — shows env config (no secrets)
+@app.route('/debug', methods=['GET'])
+def debug():
+    import os
+    uri = os.getenv('MONGODB_URI', 'NOT SET')
+    # Mask password in URI for safe display
+    import re
+    masked = re.sub(r'://([^:]+):([^@]+)@', r'://\1:***@', uri)
+    return jsonify({
+        'mongodb_uri_set': bool(uri and uri != 'NOT SET'),
+        'mongodb_uri_masked': masked,
+        'gemini_key_set': bool(os.getenv('GEMINI_API_KEY')),
+        'jwt_secret_set': bool(os.getenv('JWT_SECRET')),
+        'flask_env': os.getenv('FLASK_ENV', 'not set'),
+        'port': os.getenv('PORT', 'not set'),
     })
 
 # Root endpoint
