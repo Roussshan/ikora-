@@ -9,7 +9,7 @@
 
 const CONFIG = {
     // ── Change this to your Render URL after deploying the backend ──
-    API_BASE: 'https://ikora.onrender.com'
+    API_BASE: 'https://ikora.onrender.com/api',
 
     // Fallback to localhost during local development
     // Uncomment the line below and comment the one above while working locally:
