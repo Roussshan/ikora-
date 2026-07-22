@@ -35,21 +35,26 @@ if (showLoginLink) {
     });
 }
 
-// Check if already logged in
+// Check if already logged in — validate the token with the backend
 const currentToken = localStorage.getItem('ikora_token');
 if (currentToken && window.location.pathname.includes('auth.html')) {
-    // Verify if token is still valid
-    fetch(window.IKORA_CONFIG?.API_BASE?.replace('/api','') + '/health' || 'http://localhost:3000/health')
+    const validateUrl = API_URL + '/auth/validate';
+    fetch(validateUrl, {
+        method: 'GET',
+        headers: { 'Authorization': 'Bearer ' + currentToken }
+    })
         .then(response => {
             if (response.ok) {
-                // Backend is running, redirect to dashboard
+                // Token is valid, redirect to dashboard
                 window.location.href = 'dashboard.html';
+            } else {
+                // Token is invalid or expired, clear it
+                localStorage.removeItem('ikora_token');
+                localStorage.removeItem('ikora_user');
             }
         })
         .catch(() => {
-            // Backend not running, clear token
-            localStorage.removeItem('ikora_token');
-            localStorage.removeItem('ikora_user');
+            // Backend not reachable — leave token in place so offline mode still works
         });
 }
 
@@ -82,8 +87,9 @@ if (loginForm) {
             try {
                 const controller = new AbortController();
                 const timeoutId = setTimeout(() => controller.abort(), 2000); // 2 second timeout
+                const healthUrl = API_URL.replace('/api', '') + '/health';
                 
-                const healthCheck = await fetch('http://localhost:3000/health', { 
+                const healthCheck = await fetch(healthUrl, { 
                     method: 'GET',
                     signal: controller.signal
                 });
@@ -113,7 +119,9 @@ if (loginForm) {
                 console.log('Login response:', data);
                 
                 if (!response.ok) {
-                    throw new Error(data.error || 'Login failed');
+                    // Backend returns { error: { code, message } }
+                    const errMsg = (data.error && data.error.message) || data.error || 'Login failed';
+                    throw new Error(errMsg);
                 }
                 
                 // Save token and user info
@@ -208,8 +216,9 @@ if (signupForm) {
             try {
                 const controller = new AbortController();
                 const timeoutId = setTimeout(() => controller.abort(), 2000); // 2 second timeout
+                const healthUrl = API_URL.replace('/api', '') + '/health';
                 
-                const healthCheck = await fetch('http://localhost:3000/health', {
+                const healthCheck = await fetch(healthUrl, {
                     method: 'GET',
                     signal: controller.signal
                 });
@@ -239,7 +248,9 @@ if (signupForm) {
                 console.log('Registration response:', data);
                 
                 if (!response.ok) {
-                    throw new Error(data.error || 'Registration failed');
+                    // Backend returns { error: { code, message } }
+                    const errMsg = (data.error && data.error.message) || data.error || 'Registration failed';
+                    throw new Error(errMsg);
                 }
                 
                 // Save token and user info
