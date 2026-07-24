@@ -4072,3 +4072,613 @@ body.dark-mode .view-full-link:hover {
         gap: 0.2rem;
     }
 }
+
+/* ========================================
+   HAMBURGER MENU
+   ======================================== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 38px;
+    height: 38px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+    flex-shrink: 0;
+    z-index: 1010;
+}
+
+.hamburger:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile nav overlay */
+.nav-links.mobile-open {
+    display: flex !important;
+}
+
+/* ========================================
+   MOBILE — 480px and below
+   ======================================== */
+@media (max-width: 480px) {
+
+    /* --- Navbar --- */
+    .navbar {
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        transform: none;
+        border-radius: 0;
+        padding: 0;
+    }
+
+    .nav-container {
+        border-radius: 0 !important;
+        padding: 0.7rem 1rem !important;
+        gap: 0 !important;
+        flex-wrap: nowrap !important;
+        justify-content: space-between !important;
+        min-height: 54px;
+        position: relative;
+        white-space: normal;
+    }
+
+    .logo {
+        border-right: none !important;
+        border-bottom: none !important;
+        width: auto !important;
+        padding: 0 !important;
+        justify-content: flex-start !important;
+    }
+
+    .logo-text {
+        font-size: 1rem;
+    }
+
+    .logo-image {
+        width: 26px !important;
+        height: 26px !important;
+    }
+
+    /* Hide nav links by default, show as dropdown */
+    .nav-links {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(30, 20, 60, 0.97);
+        backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0 !important;
+        padding: 0.5rem 0 !important;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        z-index: 999;
+        width: 100% !important;
+    }
+
+    .nav-links.mobile-open {
+        display: flex !important;
+    }
+
+    .nav-links li {
+        width: 100%;
+        flex-shrink: unset;
+    }
+
+    .nav-links a,
+    .nav-links .btn-nav {
+        display: block !important;
+        width: 100% !important;
+        padding: 0.9rem 1.4rem !important;
+        font-size: 1rem !important;
+        border-radius: 0 !important;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-links li:last-child a {
+        border-bottom: none;
+    }
+
+    .btn-nav {
+        margin: 0.4rem 1rem !important;
+        border-radius: 12px !important;
+        text-align: center !important;
+        width: calc(100% - 2rem) !important;
+    }
+
+    .theme-toggle {
+        /* Keep it inline in the top bar */
+        position: static !important;
+        margin-left: auto;
+    }
+
+    /* Theme toggle sits in the dropdown too — hide the li wrapper for it
+       and keep it visible in top-bar via a separate approach */
+    .nav-links li:has(.theme-toggle) {
+        display: flex;
+        justify-content: center;
+        padding: 0.5rem 0;
+    }
+
+    /* Show hamburger */
+    .hamburger {
+        display: flex;
+    }
+
+    /* --- Hero --- */
+    .hero {
+        padding-top: 54px;
+        min-height: 100svh;
+    }
+
+    .hero-content-center {
+        padding: 1.5rem 1rem;
+    }
+
+    .hero-title-large {
+        font-size: 3.8rem !important;
+        letter-spacing: 0.05em;
+    }
+
+    .hero-tagline-top,
+    .hero-tagline-bottom {
+        position: static !important;
+        font-size: 0.82rem !important;
+        max-width: 100% !important;
+        text-align: center !important;
+        margin: 1rem 0 !important;
+        padding: 0 0.5rem;
+    }
+
+    /* --- About / Index sections --- */
+    .about-ikora {
+        padding: 2rem 1rem;
+    }
+
+    .content-wrapper {
+        padding: 0 0.5rem;
+    }
+
+    .content-title {
+        font-size: 1.6rem !important;
+    }
+
+    .content-text {
+        font-size: 0.95rem !important;
+        padding: 1rem !important;
+        text-align: left !important;
+    }
+
+    .work-steps {
+        grid-template-columns: 1fr !important;
+        gap: 1rem;
+    }
+
+    .step-card {
+        padding: 1.5rem;
+    }
+
+    .step-card h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Benefits — stack vertically on mobile */
+    .benefits-grid {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        overflow-x: hidden !important;
+    }
+
+    .benefit-item {
+        width: calc(50% - 0.5rem) !important;
+        min-width: 0 !important;
+        padding: 1.2rem !important;
+    }
+
+    .benefit-icon {
+        font-size: 2rem !important;
+    }
+
+    .benefit-item h4 {
+        font-size: 0.95rem !important;
+    }
+
+    .benefit-item p {
+        font-size: 0.82rem !important;
+    }
+
+    /* CTA */
+    .cta-final {
+        padding: 2rem 1.2rem;
+        margin-top: 2.5rem;
+    }
+
+    .cta-final h2 {
+        font-size: 1.6rem !important;
+    }
+
+    .cta-final p {
+        font-size: 1rem !important;
+    }
+
+    .btn-large {
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+    }
+
+    /* --- About hero section --- */
+    .about-hero {
+        padding: 4.5rem 1.2rem 2.5rem;
+    }
+
+    .about-hero h1 {
+        font-size: 1.8rem !important;
+        line-height: 1.3;
+    }
+
+    .about-hero p {
+        font-size: 1rem !important;
+    }
+
+    /* Content section padding */
+    .content-section {
+        padding: 1rem;
+    }
+
+    .content-container {
+        padding: 0;
+    }
+
+    /* --- Wisdom / About page cards --- */
+    .wisdom-card-transparent {
+        padding: 1.5rem 1rem !important;
+        min-height: auto !important;
+        border-radius: 16px;
+    }
+
+    .wisdom-card-transparent h2 {
+        font-size: 1.4rem !important;
+    }
+
+    .wisdom-card-transparent p {
+        font-size: 0.95rem !important;
+    }
+
+    .wisdom-icon {
+        font-size: 3rem !important;
+    }
+
+    /* Key teachings flowchart — vertical on mobile */
+    .teachings-grid-flow {
+        flex-direction: column !important;
+        align-items: center !important;
+        overflow-x: hidden !important;
+    }
+
+    .teaching-flow-card {
+        width: 100% !important;
+        max-width: 340px !important;
+        height: auto !important;
+        min-height: 0 !important;
+        padding: 1.2rem !important;
+    }
+
+    .flow-arrow {
+        transform: rotate(90deg);
+        margin: 0;
+    }
+
+    .key-teachings h2 {
+        font-size: 1.6rem !important;
+    }
+
+    /* Quote of day */
+    .quote-of-day {
+        padding: 2rem 1rem 1.5rem !important;
+        border-radius: 16px;
+    }
+
+    .quote-title {
+        font-size: 1.2rem !important;
+    }
+
+    .quote-text {
+        font-size: 0.9rem !important;
+        padding: 0 !important;
+    }
+
+    .quote-refresh {
+        top: 0.8rem;
+        right: 0.8rem;
+        width: 38px;
+        height: 38px;
+    }
+
+    /* CTA transparent */
+    .cta-section-transparent {
+        padding: 2rem 1.2rem;
+        margin-top: 2.5rem;
+        border-radius: 20px;
+    }
+
+    .cta-section-transparent h2 {
+        font-size: 1.6rem !important;
+    }
+
+    .cta-section-transparent p {
+        font-size: 1rem !important;
+    }
+
+    /* --- Testimonials --- */
+    .testimonials-carousel {
+        padding: 0 38px !important;
+    }
+
+    .testimonials-container {
+        min-height: 420px;
+    }
+
+    .testimonial-card {
+        padding: 1.5rem 1.2rem !important;
+    }
+
+    .testimonial-text {
+        font-size: 0.9rem !important;
+    }
+
+    .carousel-btn {
+        width: 34px !important;
+        height: 34px !important;
+        font-size: 1.2rem !important;
+    }
+
+    /* --- Auth page --- */
+    .auth-container {
+        padding: 4.5rem 1rem 1.5rem;
+        align-items: flex-start;
+    }
+
+    .auth-card-wrapper {
+        max-width: 100% !important;
+        width: 100%;
+    }
+
+    .auth-card {
+        padding: 2rem 1.2rem !important;
+        border-radius: 20px !important;
+    }
+
+    .auth-header h2 {
+        font-size: 1.5rem !important;
+    }
+
+    .auth-header p {
+        font-size: 0.88rem !important;
+    }
+
+    .auth-logo-image {
+        width: 60px !important;
+        height: 60px !important;
+    }
+
+    .form-group input {
+        padding: 0.85rem 1rem !important;
+        font-size: 0.95rem !important;
+        /* Prevent iOS zoom-in on focus */
+        font-size: max(16px, 0.95rem) !important;
+    }
+
+    .btn-full {
+        padding: 0.9rem !important;
+        font-size: 1rem !important;
+    }
+
+    /* --- Dashboard / Chat --- */
+    .chat-container-centered,
+    .chat-container-single {
+        padding: 56px 0.5rem 1rem !important;
+        align-items: flex-start !important;
+    }
+
+    .chat-card-glass {
+        height: calc(100svh - 70px) !important;
+        border-radius: 16px !important;
+        max-width: 100% !important;
+    }
+
+    .chat-header-single {
+        padding: 1rem 1rem !important;
+        gap: 0.8rem;
+    }
+
+    .bot-avatar-header {
+        width: 52px !important;
+        height: 52px !important;
+    }
+
+    .chat-avatar-image {
+        width: 34px !important;
+        height: 34px !important;
+    }
+
+    .header-text h2 {
+        font-size: 1.2rem !important;
+    }
+
+    .header-text p {
+        font-size: 0.8rem !important;
+    }
+
+    .chat-messages-single {
+        padding: 1rem !important;
+        gap: 1rem;
+    }
+
+    .message-content {
+        max-width: 85% !important;
+        padding: 0.8rem 1rem !important;
+    }
+
+    .message-content p {
+        font-size: 0.9rem;
+    }
+
+    .chat-input-single {
+        padding: 0.8rem 0.8rem 1rem !important;
+    }
+
+    .chat-form {
+        gap: 0.5rem;
+    }
+
+    #chatInput {
+        padding: 0.8rem 1rem !important;
+        font-size: max(16px, 0.9rem) !important;
+    }
+
+    .send-btn-single {
+        padding: 0.8rem 1.2rem !important;
+        font-size: 0.9rem !important;
+        white-space: nowrap;
+    }
+
+    /* Mood dock on mobile */
+    .mood-dock {
+        right: 10px !important;
+        bottom: 10px !important;
+    }
+
+    /* --- Exercise page --- */
+    .breathing-exercise {
+        padding: 2rem 1rem !important;
+        border-radius: 20px;
+    }
+
+    .breathing-circle-animated {
+        width: 100px !important;
+        height: 100px !important;
+    }
+
+    .breathing-text {
+        font-size: 0.9rem !important;
+    }
+
+    .breathing-description {
+        font-size: 0.9rem !important;
+        padding: 0 0.5rem;
+    }
+
+    .coming-soon-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .coming-soon-card {
+        padding: 1.5rem 1rem !important;
+    }
+
+    /* --- Gita Library --- */
+    .search-bar {
+        flex-direction: column !important;
+    }
+
+    .search-input {
+        width: 100% !important;
+    }
+
+    .filter-section {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    /* --- Loading screen --- */
+    .loading-title {
+        font-size: 4.5rem !important;
+    }
+
+    .loading-bar {
+        width: 220px !important;
+    }
+
+    /* --- Footer --- */
+    .footer {
+        padding: 1.2rem 1rem;
+        font-size: 0.85rem;
+        margin-top: 2rem;
+    }
+}
+
+/* ========================================
+   MOBILE — 375px and below (small phones)
+   ======================================== */
+@media (max-width: 375px) {
+    .hero-title-large {
+        font-size: 3rem !important;
+    }
+
+    .about-hero h1 {
+        font-size: 1.5rem !important;
+    }
+
+    .content-title {
+        font-size: 1.4rem !important;
+    }
+
+    .benefit-item {
+        width: 100% !important;
+    }
+
+    .auth-card {
+        padding: 1.5rem 1rem !important;
+    }
+
+    .send-btn-single {
+        padding: 0.8rem 0.8rem !important;
+        font-size: 0.82rem !important;
+    }
+
+    .testimonials-carousel {
+        padding: 0 28px !important;
+    }
+}
+
+/* ========================================
+   DARK MODE — hamburger + mobile nav
+   ======================================== */
+body.dark-mode .nav-links {
+    background: rgba(10, 10, 30, 0.98) !important;
+}
