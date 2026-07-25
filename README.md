@@ -2,7 +2,7 @@
 
 > A mental wellness companion powered by Bhagavad Gita wisdom and Google Gemini AI.
 
-**Live Demo:** [ikora.netlify.app](https://ikora.netlify.app) &nbsp;|&nbsp; **API:** [ikora-backend.onrender.com](https://ikora-backend.onrender.com/health)
+**Live Demo:** [ikora.netlify.app](https://ikoraa.netlify.app) &nbsp;|&nbsp; 
 
 ---
 
