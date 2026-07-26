@@ -2547,11 +2547,6 @@ body.dark-mode .color-orb-bg {
     opacity: 0.4;
 }
 
-body.dark-mode .navbar {
-    background: rgba(0, 0, 0, 0.3);
-    border-bottom-color: rgba(255, 255, 255, 0.1);
-}
-
 body.dark-mode .hero-title-large {
     color: var(--cream-yellow);
     text-shadow: 0 0 60px rgba(253, 230, 138, 0.8);
