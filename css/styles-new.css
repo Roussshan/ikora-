@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 :root {
     --sky-blue: #B8D4E8;
     --soft-purple: #A78BFA;
@@ -4188,6 +4193,7 @@ body.dark-mode .view-full-link:hover {
         min-height: 54px;
         position: relative;
         white-space: normal;
+        width: 100% !important;
     }
 
     .logo {
