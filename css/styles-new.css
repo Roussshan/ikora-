@@ -4722,6 +4722,8 @@ body.dark-mode .view-full-link:hover {
 /* ========================================
    DARK MODE — hamburger + mobile nav
    ======================================== */
-body.dark-mode .nav-links {
-    background: rgba(10, 10, 30, 0.98) !important;
+@media (max-width: 768px) {
+    body.dark-mode .nav-links {
+        background: rgba(10, 10, 30, 0.98) !important;
+    }
 }
