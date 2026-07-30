@@ -440,20 +440,32 @@ body::before {
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 1.1rem;
     padding: 0;
     position: relative;
     z-index: 10;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .theme-toggle:hover {
     background: rgba(255, 255, 255, 0.15);
-    transform: rotate(180deg) scale(1.1);
+    transform: rotate(20deg) scale(1.1);
 }
 
-.theme-icon {
-    font-size: 1.3rem;
+/* SVG icon visibility — light mode shows moon, dark mode shows sun */
+.theme-toggle .icon-sun {
+    display: none;
+}
+
+.theme-toggle .icon-moon {
     display: block;
+}
+
+body.dark-mode .theme-toggle .icon-sun {
+    display: block;
+}
+
+body.dark-mode .theme-toggle .icon-moon {
+    display: none;
 }
 
 .user-greeting {
@@ -2698,8 +2710,8 @@ body.dark-mode .quote-refresh {
     background: rgba(0, 0, 0, 0.3);
 }
 
-body.dark-mode .theme-toggle .theme-icon::before {
-    content: '☀️';
+body.dark-mode .theme-toggle {
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* ========================================
