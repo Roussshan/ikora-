@@ -1866,9 +1866,7 @@ body.dark-mode .theme-toggle .icon-moon {
     }
 
     .nav-links li:has(.theme-toggle) {
-        display: flex;
-        justify-content: center;
-        padding: 0.5rem 0;
+        display: none;
     }
     
     .logo-image {
@@ -4314,15 +4312,15 @@ body.dark-mode .view-full-link:hover {
     .theme-toggle {
         /* Keep it inline in the top bar */
         position: static !important;
-        margin-left: auto;
+        z-index: auto !important;
+        margin-left: 0;
+        flex-shrink: 0;
     }
 
-    /* Theme toggle sits in the dropdown too — hide the li wrapper for it
-       and keep it visible in top-bar via a separate approach */
+    /* Theme toggle li inside the dropdown — hide it there,
+       the button is shown in the top bar row instead */
     .nav-links li:has(.theme-toggle) {
-        display: flex;
-        justify-content: center;
-        padding: 0.5rem 0;
+        display: none;
     }
 
     /* Show hamburger */
