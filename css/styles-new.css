@@ -4310,17 +4310,31 @@ body.dark-mode .view-full-link:hover {
     }
 
     .theme-toggle {
-        /* Keep it inline in the top bar */
         position: static !important;
         z-index: auto !important;
         margin-left: 0;
         flex-shrink: 0;
+        width: 36px;
+        height: 36px;
     }
 
-    /* Theme toggle li inside the dropdown — hide it there,
-       the button is shown in the top bar row instead */
-    .nav-links li:has(.theme-toggle) {
-        display: none;
+    /* Theme toggle li — show centered at bottom of dropdown */
+    .nav-links li:has(.theme-toggle),
+    .nav-theme-li {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        padding: 0.6rem 0 0.4rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        width: 100%;
+    }
+
+    .nav-theme-li .theme-toggle {
+        position: static !important;
+        z-index: auto !important;
+        width: 38px;
+        height: 38px;
+        margin: 0;
     }
 
     /* Show hamburger */
