@@ -1865,8 +1865,23 @@ body.dark-mode .theme-toggle .icon-moon {
         width: calc(100% - 2rem) !important;
     }
 
-    .nav-links li:has(.theme-toggle) {
-        display: none;
+    .nav-links li:has(.theme-toggle),
+    .nav-theme-li {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        padding: 0.6rem 0 0.4rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        width: 100%;
+    }
+
+    .nav-theme-li .theme-toggle,
+    .nav-links li:has(.theme-toggle) .theme-toggle {
+        position: static !important;
+        z-index: auto !important;
+        width: 38px;
+        height: 38px;
+        margin: 0;
     }
     
     .logo-image {
