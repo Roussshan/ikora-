@@ -1832,6 +1832,8 @@ body.dark-mode .theme-toggle .icon-moon {
         box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
         z-index: 999;
         width: 100% !important;
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
     }
 
     .nav-links.mobile-open {
