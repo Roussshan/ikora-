@@ -1867,23 +1867,26 @@ body.dark-mode .theme-toggle .icon-moon {
         width: calc(100% - 2rem) !important;
     }
 
+    /* Theme toggle is now a direct sibling in the top bar — always visible */
     .nav-links li:has(.theme-toggle),
     .nav-theme-li {
-        display: flex !important;
-        justify-content: center;
-        align-items: center;
-        padding: 0.6rem 0 0.4rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        width: 100%;
+        display: none;
     }
 
-    .nav-theme-li .theme-toggle,
-    .nav-links li:has(.theme-toggle) .theme-toggle {
+    /* Theme toggle button sits in the top bar between hamburger and nav-links */
+    .nav-container > .theme-toggle {
+        display: flex;
+        flex-shrink: 0;
         position: static !important;
         z-index: auto !important;
-        width: 38px;
-        height: 38px;
-        margin: 0;
+        width: 36px;
+        height: 36px;
+        margin-left: auto;
+    }
+
+    /* Hide the nav-links version (desktop only) */
+    .nav-links > li > .theme-toggle {
+        display: none;
     }
     
     .logo-image {
@@ -4337,23 +4340,26 @@ body.dark-mode .view-full-link:hover {
         height: 36px;
     }
 
-    /* Theme toggle li — show centered at bottom of dropdown */
+    /* Theme toggle is now a direct sibling in the top bar — always visible */
     .nav-links li:has(.theme-toggle),
     .nav-theme-li {
-        display: flex !important;
-        justify-content: center;
-        align-items: center;
-        padding: 0.6rem 0 0.4rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        width: 100%;
+        display: none;
     }
 
-    .nav-theme-li .theme-toggle {
+    /* Theme toggle button sits in the top bar between hamburger and nav-links */
+    .nav-container > .theme-toggle {
+        display: flex;
+        flex-shrink: 0;
         position: static !important;
         z-index: auto !important;
-        width: 38px;
-        height: 38px;
-        margin: 0;
+        width: 36px;
+        height: 36px;
+        margin-left: auto;
+    }
+
+    /* Hide the nav-links version (desktop only) */
+    .nav-links > li > .theme-toggle {
+        display: none;
     }
 
     /* Show hamburger */
