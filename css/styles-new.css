@@ -1793,12 +1793,14 @@ body.dark-mode .theme-toggle .icon-moon {
     
     .nav-container {
         padding: 0.6rem 1rem;
-        gap: 0;
+        gap: 0.5rem;
         flex-wrap: nowrap;
-        justify-content: space-between;
+        justify-content: flex-start;
+        align-items: center;
         border-radius: 0;
         min-height: 54px;
         width: 100%;
+        position: relative;
     }
 
     /* Show hamburger at 768px too */
@@ -4339,19 +4341,22 @@ body.dark-mode .view-full-link:hover {
         width: calc(100% - 2rem) !important;
     }
 
-    /* ── Theme toggle: direct child of nav-container, always visible in top bar ── */
+    /* ── Theme toggle: always visible in top bar, to the left of hamburger ── */
     .theme-toggle,
     .nav-container > .theme-toggle {
         display: flex !important;
-        flex-shrink: 0 !important;
+        order: 2 !important;
         position: static !important;
         z-index: 1 !important;
+        flex-shrink: 0 !important;
         width: 36px !important;
         height: 36px !important;
         margin-left: auto !important;
         align-items: center !important;
         justify-content: center !important;
-        color: rgba(255,255,255,0.9) !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+        background: transparent !important;
+        border: none !important;
     }
 
     .nav-links li:has(.theme-toggle),
