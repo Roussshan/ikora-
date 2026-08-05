@@ -4326,35 +4326,25 @@ body.dark-mode .view-full-link:hover {
         width: calc(100% - 2rem) !important;
     }
 
-    .theme-toggle {
-        position: static !important;
-        z-index: auto !important;
-        margin-left: 0;
-        flex-shrink: 0;
-        width: 36px;
-        height: 36px;
-    }
-
-    /* Theme toggle is now a direct sibling in the top bar — always visible */
-    .nav-links li:has(.theme-toggle),
-    .nav-theme-li {
-        display: none;
-    }
-
-    /* Theme toggle button sits in the top bar between hamburger and nav-links */
+    /* ── Theme toggle: direct child of nav-container, always visible in top bar ── */
+    .theme-toggle,
     .nav-container > .theme-toggle {
-        display: flex;
-        flex-shrink: 0;
+        display: flex !important;
+        flex-shrink: 0 !important;
         position: static !important;
-        z-index: auto !important;
-        width: 36px;
-        height: 36px;
-        margin-left: auto;
+        z-index: 1 !important;
+        width: 36px !important;
+        height: 36px !important;
+        margin-left: auto !important;
+        align-items: center !important;
+        justify-content: center !important;
+        color: rgba(255,255,255,0.9) !important;
     }
 
-    /* Hide the nav-links version (desktop only) */
+    .nav-links li:has(.theme-toggle),
+    .nav-theme-li,
     .nav-links > li > .theme-toggle {
-        display: none;
+        display: none !important;
     }
 
     /* Show hamburger */
