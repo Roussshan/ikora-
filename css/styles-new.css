@@ -444,6 +444,7 @@ body::before {
     position: relative;
     z-index: 10;
     color: rgba(255, 255, 255, 0.9);
+    flex-shrink: 0;
 }
 
 .theme-toggle:hover {
@@ -1867,27 +1868,39 @@ body.dark-mode .theme-toggle .icon-moon {
         width: calc(100% - 2rem) !important;
     }
 
-    /* ── Theme toggle: direct child of nav-container, always visible in top bar ── */
+    /* ── Theme toggle: always visible in top bar, to the left of hamburger ── */
     .nav-links li:has(.theme-toggle),
     .nav-theme-li {
-        display: none;
+        display: none !important;
+    }
+
+    .nav-links > li > .theme-toggle {
+        display: none !important;
     }
 
     .nav-container > .theme-toggle {
         display: flex !important;
-        flex-shrink: 0 !important;
+        order: 2;
         position: static !important;
         z-index: 1 !important;
+        flex-shrink: 0 !important;
         width: 36px !important;
         height: 36px !important;
         margin-left: auto !important;
         align-items: center !important;
         justify-content: center !important;
-        color: rgba(255,255,255,0.9) !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+        background: transparent !important;
+        border: none !important;
     }
 
-    .nav-links > li > .theme-toggle {
-        display: none;
+    /* hamburger comes after theme-toggle */
+    .hamburger {
+        order: 3;
+    }
+
+    .logo {
+        order: 1;
     }
 
     .logo-image {
