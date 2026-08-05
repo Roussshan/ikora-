@@ -4262,12 +4262,15 @@ body.dark-mode .view-full-link:hover {
     .nav-container {
         border-radius: 0 !important;
         padding: 0.7rem 1rem !important;
-        gap: 0 !important;
+        gap: 0.5rem !important;
         flex-wrap: nowrap !important;
-        justify-content: space-between !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
         min-height: 54px;
         position: relative;
         white-space: normal;
+        width: 100% !important;
+    }
         width: 100% !important;
     }
 
