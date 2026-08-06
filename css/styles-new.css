@@ -1863,10 +1863,16 @@ body.dark-mode .theme-toggle .icon-moon {
         border-bottom: none;
     }
 
-    .btn-nav {
-        margin: 0.4rem 1rem !important;
-        border-radius: 12px !important;
+    /* Let's Talk button — pill shape with margin inside dropdown */
+    .nav-links li .btn-nav {
+        display: block !important;
+        width: calc(100% - 2rem) !important;
+        margin: 0.5rem 1rem !important;
+        border-radius: 25px !important;
         text-align: center !important;
+        padding: 0.85rem 1.4rem !important;
+        border-bottom: none !important;
+    }
         width: calc(100% - 2rem) !important;
     }
 
