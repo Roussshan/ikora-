@@ -96,27 +96,178 @@
                 </div>
             </div>
 
-            <!-- Coming Soon Section -->
-            <div class="coming-soon-section">
-                <h2 class="content-title">More Exercises Coming Soon</h2>
-                <div class="coming-soon-grid">
-                    <div class="coming-soon-card">
-                        <div class="coming-soon-icon">🧘‍♀️</div>
-                        <h3>Guided Meditation</h3>
-                        <p>Step-by-step meditation sessions for beginners and advanced practitioners</p>
-                        <span class="coming-soon-badge">Coming Soon</span>
+            <!-- Body Scan Meditation -->
+            <div class="breathing-exercise" id="bodyScanSection" style="margin-top: 3rem;">
+                <h2 class="content-title">Body Scan Meditation</h2>
+                <p class="breathing-subtitle">Release tension from head to toe</p>
+                <p class="breathing-description">
+                    A body scan gently brings awareness to each part of your body, releasing stored tension and stress. 
+                    Rooted in mindfulness traditions, this practice helps you reconnect with the present moment 
+                    and cultivates the equanimity that the Gita calls <em>samatvam</em> — balance in all states.
+                </p>
+                <div class="body-scan-container" id="bodyScanContainer">
+                    <div class="body-scan-display">
+                        <div class="scan-progress-ring">
+                            <svg viewBox="0 0 120 120" width="120" height="120">
+                                <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="6"/>
+                                <circle cx="60" cy="60" r="52" fill="none" stroke="url(#scanGrad)" stroke-width="6"
+                                    stroke-dasharray="326.7" stroke-dashoffset="326.7"
+                                    stroke-linecap="round" transform="rotate(-90 60 60)"
+                                    id="scanProgressCircle"/>
+                                <defs>
+                                    <linearGradient id="scanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#A78BFA"/>
+                                        <stop offset="100%" style="stop-color:#F0ABFC"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                            <div class="scan-step-label" id="scanStepLabel">Ready</div>
+                        </div>
+                        <div class="scan-instruction" id="scanInstruction">
+                            Focus your attention on each part of your body, noticing any sensations without judgment.
+                        </div>
                     </div>
-                    <div class="coming-soon-card">
-                        <div class="coming-soon-icon">🎵</div>
-                        <h3>Sound Healing</h3>
-                        <p>Calming sounds and frequencies to promote deep relaxation</p>
-                        <span class="coming-soon-badge">Coming Soon</span>
+                </div>
+                <button class="btn btn-primary btn-large" id="bodyScanToggle">Start Body Scan</button>
+                <div class="breathing-benefits" style="margin-top: 2.5rem;">
+                    <h3>Benefits:</h3>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🫀</span>
+                            <h4>Releases Tension</h4>
+                            <p>Identifies and relaxes areas of physical stress held in the body</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🧘</span>
+                            <h4>Deepens Awareness</h4>
+                            <p>Strengthens the mind-body connection for greater self-knowledge</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">😴</span>
+                            <h4>Improves Sleep</h4>
+                            <p>Calms the nervous system, making it easier to fall and stay asleep</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🌿</span>
+                            <h4>Reduces Pain</h4>
+                            <p>Shifts relationship with discomfort through non-reactive awareness</p>
+                        </div>
                     </div>
-                    <div class="coming-soon-card">
-                        <div class="coming-soon-icon">🌅</div>
-                        <h3>Morning Rituals</h3>
-                        <p>Start your day with intention through guided morning practices</p>
-                        <span class="coming-soon-badge">Coming Soon</span>
+                </div>
+            </div>
+
+            <!-- Gratitude Journal -->
+            <div class="breathing-exercise" id="gratitudeSection" style="margin-top: 3rem;">
+                <h2 class="content-title">Gratitude Reflection</h2>
+                <p class="breathing-subtitle">Cultivate contentment through daily appreciation</p>
+                <p class="breathing-description">
+                    The Bhagavad Gita teaches <em>santosha</em> — contentment as a path to peace. 
+                    Writing down what you are grateful for rewires the mind toward abundance, 
+                    reducing anxiety and increasing resilience. Even three things a day transforms your perspective over time.
+                </p>
+                <div class="gratitude-container">
+                    <div class="gratitude-entries" id="gratitudeEntries">
+                        <div class="gratitude-input-group">
+                            <span class="gratitude-number">1</span>
+                            <input type="text" class="gratitude-input" placeholder="I am grateful for..." maxlength="120">
+                        </div>
+                        <div class="gratitude-input-group">
+                            <span class="gratitude-number">2</span>
+                            <input type="text" class="gratitude-input" placeholder="I am grateful for..." maxlength="120">
+                        </div>
+                        <div class="gratitude-input-group">
+                            <span class="gratitude-number">3</span>
+                            <input type="text" class="gratitude-input" placeholder="I am grateful for..." maxlength="120">
+                        </div>
+                    </div>
+                    <div class="gratitude-reflection">
+                        <label class="gratitude-label">Today's reflection (optional):</label>
+                        <textarea class="gratitude-textarea" id="gratitudeReflection" placeholder="How do these things make you feel? What do they mean to you?" maxlength="400"></textarea>
+                    </div>
+                    <div class="gratitude-actions">
+                        <button class="btn btn-primary" id="saveGratitude">Save Entry</button>
+                        <button class="btn btn-secondary" id="viewGratitude" style="margin-left:1rem;">View Past Entries</button>
+                    </div>
+                    <div class="gratitude-success" id="gratitudeSuccess" style="display:none;">
+                        ✓ Entry saved! Keep building this daily practice.
+                    </div>
+                    <div class="gratitude-history" id="gratitudeHistory" style="display:none;">
+                        <h4 style="color:var(--cream-yellow); margin-bottom:1rem;">Past Entries</h4>
+                        <div id="gratitudeHistoryList"></div>
+                    </div>
+                </div>
+                <div class="breathing-benefits" style="margin-top: 2.5rem;">
+                    <h3>Benefits:</h3>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">😊</span>
+                            <h4>Boosts Happiness</h4>
+                            <p>Shifts focus from what is lacking to what is already present and good</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">💪</span>
+                            <h4>Builds Resilience</h4>
+                            <p>People who practice gratitude recover from adversity more quickly</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🤝</span>
+                            <h4>Strengthens Bonds</h4>
+                            <p>Appreciating others deepens relationships and social connection</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🌙</span>
+                            <h4>Calms the Mind</h4>
+                            <p>Evening practice reduces rumination and prepares for restful sleep</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gita Affirmations -->
+            <div class="breathing-exercise" id="affirmationsSection" style="margin-top: 3rem;">
+                <h2 class="content-title">Gita Affirmations</h2>
+                <p class="breathing-subtitle">Absorb ancient wisdom one verse at a time</p>
+                <p class="breathing-description">
+                    Repetition of sacred truths — called <em>abhyasa</em> in the Gita — gradually transforms the mind. 
+                    Read each affirmation aloud, pause, breathe, and let it sink in. 
+                    The Gita says: <em>"For one who has conquered the mind, the mind is the best of friends."</em> (6.6)
+                </p>
+                <div class="affirmation-container">
+                    <div class="affirmation-card-display" id="affirmationDisplay">
+                        <div class="affirmation-verse" id="affirmationVerse"></div>
+                        <div class="affirmation-source" id="affirmationSource"></div>
+                        <div class="affirmation-meaning" id="affirmationMeaning"></div>
+                    </div>
+                    <div class="affirmation-controls">
+                        <button class="btn btn-secondary affirmation-btn" id="prevAffirmation">← Previous</button>
+                        <span class="affirmation-counter" id="affirmationCounter">1 / 8</span>
+                        <button class="btn btn-secondary affirmation-btn" id="nextAffirmation">Next →</button>
+                    </div>
+                    <button class="btn btn-primary" id="shuffleAffirmation" style="margin-top:1rem;">Shuffle</button>
+                </div>
+                <div class="breathing-benefits" style="margin-top: 2.5rem;">
+                    <h3>Benefits:</h3>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">📖</span>
+                            <h4>Wisdom Absorption</h4>
+                            <p>Regular exposure to ancient truths reshapes how you interpret daily events</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🎯</span>
+                            <h4>Mental Clarity</h4>
+                            <p>Philosophical anchors cut through confusion and restore direction</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">🔥</span>
+                            <h4>Inner Strength</h4>
+                            <p>Internalized truths become a resource during difficult moments</p>
+                        </div>
+                        <div class="benefit-item">
+                            <span class="benefit-icon">☮️</span>
+                            <h4>Equanimity</h4>
+                            <p>Gita teachings train the mind to remain balanced in joy and sorrow</p>
+                        </div>
                     </div>
                 </div>
             </div>
