@@ -288,7 +288,7 @@
     <script src="js/config.js"></script>
     <script src="js/script.js"></script>
     <script>
-        // Hamburger menu toggle
+        // ── Hamburger menu ──────────────────────────────────
         (function () {
             var btn = document.getElementById('hamburger');
             var nav = document.getElementById('navLinks');
@@ -312,6 +312,217 @@
                     btn.setAttribute('aria-expanded', 'false');
                 }
             });
+        })();
+
+        // ── Body Scan Meditation ────────────────────────────
+        (function () {
+            const steps = [
+                { label: 'Head & Scalp',      instruction: 'Bring awareness to the top of your head. Notice any tension. Breathe in, and as you breathe out, let it soften and release.' },
+                { label: 'Face & Jaw',        instruction: 'Relax your forehead, eyes, cheeks, and jaw. Many people hold stress here without realising. Let everything loosen.' },
+                { label: 'Neck & Shoulders',  instruction: 'Feel the weight of your shoulders drop away from your ears. Breathe into any tightness in your neck and let it dissolve.' },
+                { label: 'Chest & Heart',     instruction: 'Place gentle attention on your chest. Notice your heartbeat. With each exhale, let go of any emotional weight you are carrying.' },
+                { label: 'Arms & Hands',      instruction: 'Travel down through your upper arms, elbows, forearms, and into your palms and fingertips. Let them feel heavy and warm.' },
+                { label: 'Stomach & Back',    instruction: 'Notice your belly rising and falling with each breath. Soften the muscles of your lower back. Release any held tension.' },
+                { label: 'Hips & Pelvis',     instruction: 'Bring awareness to your hips and the base of your spine. This is where the body stores a great deal of stress. Breathe and release.' },
+                { label: 'Legs & Knees',      instruction: 'Feel your thighs, knees, and calves. Notice any sensations — tingling, warmth, or heaviness — without judgment.' },
+                { label: 'Feet & Toes',       instruction: 'Travel all the way down to your feet and toes. Feel the ground beneath you. You are fully present, fully supported.' },
+                { label: 'Whole Body',        instruction: 'Now expand your awareness to your entire body at once. You are a single, unified presence. Rest here in stillness for a moment.' },
+            ];
+
+            let current = 0;
+            let timer = null;
+            let running = false;
+            const STEP_DURATION = 12000;
+
+            const toggle = document.getElementById('bodyScanToggle');
+            const label = document.getElementById('scanStepLabel');
+            const instruction = document.getElementById('scanInstruction');
+            const circle = document.getElementById('scanProgressCircle');
+            const CIRCUMFERENCE = 326.7;
+
+            function setStep(idx) {
+                const s = steps[idx];
+                label.textContent = s.label;
+                instruction.textContent = s.instruction;
+                // animate progress ring
+                circle.style.transition = 'none';
+                circle.style.strokeDashoffset = CIRCUMFERENCE;
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        circle.style.transition = `stroke-dashoffset ${STEP_DURATION}ms linear`;
+                        circle.style.strokeDashoffset = 0;
+                    });
+                });
+            }
+
+            function next() {
+                current++;
+                if (current >= steps.length) {
+                    stop();
+                    label.textContent = 'Complete';
+                    instruction.textContent = 'Beautiful. Take a deep breath and gently return your awareness to the room. Carry this calm with you.';
+                    toggle.textContent = 'Start Body Scan';
+                    return;
+                }
+                setStep(current);
+            }
+
+            function stop() {
+                clearInterval(timer);
+                running = false;
+                circle.style.transition = 'none';
+                circle.style.strokeDashoffset = CIRCUMFERENCE;
+            }
+
+            toggle.addEventListener('click', function () {
+                if (running) {
+                    stop();
+                    toggle.textContent = 'Start Body Scan';
+                    label.textContent = 'Paused';
+                } else {
+                    running = true;
+                    current = 0;
+                    toggle.textContent = 'Stop';
+                    setStep(current);
+                    timer = setInterval(next, STEP_DURATION);
+                }
+            });
+        })();
+
+        // ── Gratitude Journal ───────────────────────────────
+        (function () {
+            const saveBtn = document.getElementById('saveGratitude');
+            const viewBtn = document.getElementById('viewGratitude');
+            const successMsg = document.getElementById('gratitudeSuccess');
+            const historyDiv = document.getElementById('gratitudeHistory');
+            const historyList = document.getElementById('gratitudeHistoryList');
+            const reflection = document.getElementById('gratitudeReflection');
+
+            function getEntries() {
+                return JSON.parse(localStorage.getItem('ikora_gratitude') || '[]');
+            }
+
+            saveBtn.addEventListener('click', function () {
+                const inputs = document.querySelectorAll('.gratitude-input');
+                const items = Array.from(inputs).map(i => i.value.trim()).filter(Boolean);
+                if (items.length === 0) {
+                    alert('Please fill in at least one thing you are grateful for.');
+                    return;
+                }
+                const entry = {
+                    date: new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }),
+                    items,
+                    reflection: reflection.value.trim()
+                };
+                const all = getEntries();
+                all.unshift(entry);
+                localStorage.setItem('ikora_gratitude', JSON.stringify(all.slice(0, 30)));
+                inputs.forEach(i => i.value = '');
+                reflection.value = '';
+                successMsg.style.display = 'block';
+                setTimeout(() => { successMsg.style.display = 'none'; }, 3000);
+            });
+
+            viewBtn.addEventListener('click', function () {
+                const visible = historyDiv.style.display !== 'none';
+                historyDiv.style.display = visible ? 'none' : 'block';
+                viewBtn.textContent = visible ? 'View Past Entries' : 'Hide Entries';
+                if (!visible) {
+                    const all = getEntries();
+                    if (all.length === 0) {
+                        historyList.innerHTML = '<p style="color:rgba(255,255,255,0.6)">No entries yet. Start your practice today!</p>';
+                    } else {
+                        historyList.innerHTML = all.map(e => `
+                            <div class="gratitude-entry-item">
+                                <div class="gratitude-entry-date">${e.date}</div>
+                                <ul>${e.items.map(i => `<li>${i}</li>`).join('')}</ul>
+                                ${e.reflection ? `<p class="gratitude-entry-reflection">"${e.reflection}"</p>` : ''}
+                            </div>
+                        `).join('');
+                    }
+                }
+            });
+        })();
+
+        // ── Gita Affirmations ───────────────────────────────
+        (function () {
+            const affirmations = [
+                {
+                    verse: '"You have the right to perform your prescribed duties, but you are not entitled to the fruits of your actions."',
+                    source: 'Bhagavad Gita 2.47',
+                    meaning: 'Release attachment to outcomes. Do your best today, then let go. Peace lives in the effort, not the result.'
+                },
+                {
+                    verse: '"The soul is never born nor dies at any time. It has not come into being, does not come into being, and will not come into being."',
+                    source: 'Bhagavad Gita 2.20',
+                    meaning: 'You are more than your fears, failures, or circumstances. Your essential self is untouched and unbreakable.'
+                },
+                {
+                    verse: '"One who is not disturbed in mind, even amidst the threefold miseries, and is not elated when there is happiness, is called a sage of steady mind."',
+                    source: 'Bhagavad Gita 2.56',
+                    meaning: 'Equanimity is your superpower. You can choose to remain grounded regardless of what arises around you.'
+                },
+                {
+                    verse: '"For one who has conquered the mind, the mind is the best of friends; but for one who has failed to do so, the mind will remain the greatest enemy."',
+                    source: 'Bhagavad Gita 6.6',
+                    meaning: 'Every small act of mindfulness is training your mind to serve you rather than sabotage you.'
+                },
+                {
+                    verse: '"Elevate yourself through the power of your mind, and not degrade yourself, for the mind can be your best friend or your worst enemy."',
+                    source: 'Bhagavad Gita 6.5',
+                    meaning: 'You have the agency to lift yourself up. Choose thoughts that build, not ones that diminish.'
+                },
+                {
+                    verse: '"It is better to live your own destiny imperfectly than to live an imitation of somebody else\'s life with perfection."',
+                    source: 'Bhagavad Gita 3.35',
+                    meaning: 'Stop comparing. Your path is uniquely yours. Walk it with authenticity and without apology.'
+                },
+                {
+                    verse: '"The wise grieve neither for the living nor for the dead. There was never a time when you and I did not exist."',
+                    source: 'Bhagavad Gita 2.12',
+                    meaning: 'Loss and impermanence are part of life. Hold on lightly. Trust in the continuity beneath all change.'
+                },
+                {
+                    verse: '"A person can rise through the efforts of their own mind; or draw themselves down, in the same manner. Because each person is their own friend or enemy."',
+                    source: 'Bhagavad Gita 6.5',
+                    meaning: 'You are not a victim of your circumstances. Every moment offers a fresh choice about who you want to be.'
+                },
+            ];
+
+            let current = 0;
+            const display = document.getElementById('affirmationDisplay');
+            const verseEl = document.getElementById('affirmationVerse');
+            const sourceEl = document.getElementById('affirmationSource');
+            const meaningEl = document.getElementById('affirmationMeaning');
+            const counter = document.getElementById('affirmationCounter');
+
+            function show(idx) {
+                display.style.opacity = '0';
+                setTimeout(() => {
+                    const a = affirmations[idx];
+                    verseEl.textContent = a.verse;
+                    sourceEl.textContent = a.source;
+                    meaningEl.textContent = a.meaning;
+                    counter.textContent = `${idx + 1} / ${affirmations.length}`;
+                    display.style.opacity = '1';
+                }, 250);
+            }
+
+            document.getElementById('prevAffirmation').addEventListener('click', function () {
+                current = (current - 1 + affirmations.length) % affirmations.length;
+                show(current);
+            });
+            document.getElementById('nextAffirmation').addEventListener('click', function () {
+                current = (current + 1) % affirmations.length;
+                show(current);
+            });
+            document.getElementById('shuffleAffirmation').addEventListener('click', function () {
+                const rand = Math.floor(Math.random() * affirmations.length);
+                current = rand;
+                show(current);
+            });
+
+            show(current);
         })();
     </script>
 </body>
