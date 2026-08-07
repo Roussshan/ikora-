@@ -4896,6 +4896,8 @@ body.dark-mode .view-full-link:hover {
     display: flex;
     align-items: center;
     gap: 0.8rem;
+    width: 100%;
+    min-width: 0;
 }
 
 .gratitude-number {
@@ -4914,15 +4916,16 @@ body.dark-mode .view-full-link:hover {
 
 .gratitude-input {
     flex: 1;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
     padding: 0.85rem 1.2rem;
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 12px;
     color: var(--white);
-    font-size: 0.95rem;
     font-family: 'Poppins', sans-serif;
     transition: all 0.3s ease;
-    /* prevent iOS zoom */
     font-size: max(16px, 0.95rem);
 }
 
