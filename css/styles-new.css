@@ -4823,3 +4823,297 @@ body.dark-mode .view-full-link:hover {
         background: rgba(10, 10, 30, 0.98) !important;
     }
 }
+
+/* ========================================
+   EXERCISE PAGE — NEW EXERCISES
+   ======================================== */
+
+/* ── Body Scan ── */
+.body-scan-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.body-scan-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 480px;
+    width: 100%;
+}
+
+.scan-progress-ring {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+}
+
+.scan-step-label {
+    position: absolute;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--white);
+    text-align: center;
+    padding: 0 8px;
+    line-height: 1.2;
+}
+
+.scan-instruction {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    font-style: italic;
+    padding: 1.2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: opacity 0.4s ease;
+}
+
+/* ── Gratitude Journal ── */
+.gratitude-container {
+    max-width: 620px;
+    margin: 1.5rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.gratitude-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.gratitude-input-group {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.gratitude-number {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--soft-purple), var(--soft-pink));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--white);
+    flex-shrink: 0;
+}
+
+.gratitude-input {
+    flex: 1;
+    padding: 0.85rem 1.2rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    color: var(--white);
+    font-size: 0.95rem;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    /* prevent iOS zoom */
+    font-size: max(16px, 0.95rem);
+}
+
+.gratitude-input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.13);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.gratitude-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.gratitude-label {
+    display: block;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.88rem;
+    margin-bottom: 0.5rem;
+}
+
+.gratitude-textarea {
+    width: 100%;
+    padding: 0.85rem 1.2rem;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    color: var(--white);
+    font-family: 'Poppins', sans-serif;
+    font-size: max(16px, 0.92rem);
+    resize: vertical;
+    min-height: 90px;
+    transition: all 0.3s ease;
+}
+
+.gratitude-textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.13);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.gratitude-textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.gratitude-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.gratitude-success {
+    color: #6ee7b7;
+    background: rgba(110, 231, 183, 0.12);
+    border: 1px solid rgba(110, 231, 183, 0.3);
+    border-radius: 10px;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.gratitude-history {
+    margin-top: 1rem;
+    max-height: 320px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.gratitude-entry-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.gratitude-entry-date {
+    color: var(--cream-yellow);
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.gratitude-entry-item ul {
+    padding-left: 1.2rem;
+    margin: 0 0 0.5rem;
+}
+
+.gratitude-entry-item ul li {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+}
+
+.gratitude-entry-reflection {
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* ── Gita Affirmations ── */
+.affirmation-container {
+    max-width: 640px;
+    margin: 1.5rem auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.affirmation-card-display {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 2rem 2.2rem;
+    text-align: center;
+    transition: opacity 0.25s ease;
+    width: 100%;
+}
+
+.affirmation-verse {
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.affirmation-source {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--cream-yellow);
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.3px;
+}
+
+.affirmation-meaning {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.affirmation-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.affirmation-btn {
+    padding: 0.6rem 1.4rem !important;
+    font-size: 0.9rem !important;
+}
+
+.affirmation-counter {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.88rem;
+    min-width: 50px;
+    text-align: center;
+}
+
+/* ── Mobile tweaks for new exercises ── */
+@media (max-width: 768px) {
+    .affirmation-card-display {
+        padding: 1.5rem 1.2rem;
+    }
+    .affirmation-verse {
+        font-size: 1rem;
+    }
+    .affirmation-controls {
+        gap: 0.8rem;
+    }
+    .affirmation-btn {
+        padding: 0.55rem 1rem !important;
+        font-size: 0.85rem !important;
+    }
+    .gratitude-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .gratitude-actions .btn {
+        margin-left: 0 !important;
+        text-align: center;
+    }
+    .body-scan-display {
+        gap: 1rem;
+    }
+    .scan-instruction {
+        font-size: 0.95rem;
+        padding: 1rem;
+    }
+}
