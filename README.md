@@ -2,7 +2,7 @@
 
 > A mental wellness companion powered by Bhagavad Gita wisdom and Google Gemini AI.
 
-**Live Demo:** [ikora.vercel.app](https://https://ikora-69.vercel.app) &nbsp;
+**Live Demo:** [ikora.vercel.app](https://ikora-69.vercel.app/) &nbsp;
 
 ---
 
