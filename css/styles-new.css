@@ -949,6 +949,9 @@ body.dark-mode .theme-toggle .icon-moon {
     backdrop-filter: blur(25px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 30px;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .breathing-subtitle {
@@ -4880,16 +4883,20 @@ body.dark-mode .view-full-link:hover {
 /* ── Gratitude Journal ── */
 .gratitude-container {
     max-width: 620px;
+    width: 100%;
     margin: 1.5rem auto 0;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
+    box-sizing: border-box;
 }
 
 .gratitude-entries {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
+    width: 100%;
+    min-width: 0;
 }
 
 .gratitude-input-group {
